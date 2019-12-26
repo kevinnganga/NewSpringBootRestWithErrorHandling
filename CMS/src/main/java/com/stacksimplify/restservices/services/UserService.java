@@ -1,4 +1,4 @@
-package CMS.CMS;
+package com.stacksimplify.restservices.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,10 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-
+import com.stacksimplify.restservices.entities.User;
 import com.stacksimplify.restservices.exceptions.UserExistsException;
 import com.stacksimplify.restservices.exceptions.UserNotFoundException;
-
+import com.stacksimplify.restservices.repositories.UserRepository;
 
 //Service
 @Service
@@ -62,7 +62,7 @@ public class UserService {
 		}
 
 		
-		user.setId(id);
+		user.setUserid(id);;
 		return userRepository.save(user);
 
 	}

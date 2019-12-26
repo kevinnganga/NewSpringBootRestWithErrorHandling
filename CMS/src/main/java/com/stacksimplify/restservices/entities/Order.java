@@ -1,4 +1,4 @@
-package CMS.CMS;
+package com.stacksimplify.restservices.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,11 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.hateoas.ResourceSupport;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "orders")
-public class Order {
+public class Order extends ResourceSupport {
 	
 	@Id
 	@GeneratedValue

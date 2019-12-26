@@ -1,6 +1,4 @@
-package CMS.CMS;
-
-
+package com.stacksimplify.restservices.exceptions;
 
 import java.util.Date;
 
@@ -15,9 +13,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-
-import com.stacksimplify.restservices.exceptions.CustomErrorDetails;
-import com.stacksimplify.restservices.exceptions.UserNameNotFoundException;
 
 @ControllerAdvice
 public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler {

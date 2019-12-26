@@ -1,4 +1,4 @@
-package CMS.CMS;
+package com.stacksimplify.restservices.controllers;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.stacksimplify.restservices.entities.Order;
+import com.stacksimplify.restservices.entities.User;
 import com.stacksimplify.restservices.exceptions.UserNotFoundException;
-
+import com.stacksimplify.restservices.repositories.OrderRepository;
+import com.stacksimplify.restservices.repositories.UserRepository;
 
 @RestController
 @RequestMapping(value = "/users")
@@ -33,7 +35,7 @@ public class OrderController {
 		Optional<User> userOptional = userRepository.findById(userid);
 		if (!userOptional.isPresent())
 			throw new UserNotFoundException("User Not Found");
-		
+
 		return userOptional.get().getOrders();
 	}
 
@@ -46,8 +48,8 @@ public class OrderController {
 		if (!userOptional.isPresent())
 			throw new UserNotFoundException("User Not Found");
 
-		User user = userOptional.get();//GETTING THE USER ID
-		order.setUser(user); //SETTING THE USER ID TO THE ORDER BCOZ EACH ORDER MUST HAVE A USER WHO PLACED IT
+		User user = userOptional.get();
+		order.setUser(user);
 		return orderRepository.save(order);
 
 	}
